@@ -7,6 +7,7 @@ export const getTodos = asyncHandler(async (req, res) => {
         success: true,
         count: todos.length,
         data: todos,
+        message: "Todos fetched successfully"
     })
 });
 
@@ -16,6 +17,7 @@ export const createTodo = asyncHandler(async (req, res) => {
     res.status(201).json({
         success: true,
         data: todo,
+        message: "Todo created successfully"
     })
 })
 
@@ -30,6 +32,7 @@ export const updateTodo = asyncHandler(async (req, res) => {
     res.status(200).json({
         success: true,
         data: todo,
+        message: "Todo updated successfully"
     })
 })
 
@@ -43,5 +46,6 @@ export const deleteTodo = asyncHandler(async (req, res) => {
     res.status(200).json({
         success: true,
         data: todo,
+        message: "Todo deleted successfully"
     })
 })
