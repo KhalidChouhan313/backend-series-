@@ -4,14 +4,14 @@ import dotenv from "dotenv";
 import todoRoutes from "./routes/routes.js";
 import { connectDB } from "./config/db.js";
 import cors from "cors";
-dotenv.config()
+dotenv.config();
 const app = express();
 
 app.use(express.json());
 app.use(cors());
 connectDB();
 
-app.use("/api/todos", todoRoutes);
+app.use("/api", todoRoutes);
 
 app.get("/", (req, res) => {
     res.send("API is running...")
