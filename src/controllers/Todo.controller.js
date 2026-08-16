@@ -32,3 +32,16 @@ export const updateTodo = asyncHandler(async (req, res) => {
         data: todo,
     })
 })
+
+export const deleteTodo = asyncHandler(async (req, res) => {
+    const { id } = req.params;
+    const todo = await Todo.findByIdAndDelete(id);
+    if (!todo) {
+        res.status(404);
+        throw new Error("Todo not found");
+    }
+    res.status(200).json({
+        success: true,
+        data: todo,
+    })
+})
